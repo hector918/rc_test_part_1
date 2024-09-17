@@ -1,4 +1,4 @@
-Folder Structure
+## Folder Structure
 
 ```
 root
@@ -14,7 +14,8 @@ root
 └── package.json (root)
 ```
 
-How to Run This Application (At the ROOT of the FOLDER)\
+## How to Run This Application (At the ROOT of the FOLDER)
+
 Follow these steps:
 
 1. Install dependencies for the client and server:
@@ -48,10 +49,12 @@ Visit http://localhost:3000 to see the React app.\
 Visit http://localhost:3001/users to view all users.\
 Visit http://localhost:3001/movies to view all movies.
 
-React Application
-In the React app (accessible at http://localhost:3000), you'll see a simple interface with seven movie titles. You can search for these movies by typing their titles into the input box. For example, typing "The Matrix" will display "The Matrix" and its release date.
+## React Application
 
-SQL Injection Demonstration
+The React app (accessible at http://localhost:3000), you'll see a simple interface with seven movie titles. You can search for these movies by typing their titles into the input box. For example, typing "The Matrix" will display "The Matrix" and its release date.
+
+## SQL Injection Demonstration
+
 A sample SQL injection code is provided for demonstration:
 
 ```
@@ -60,7 +63,8 @@ A sample SQL injection code is provided for demonstration:
 
 Paste this code into the input box to see all users from the database. This exposes a significant security vulnerability.
 
-Task
+## Task
+
 Your objectives are:
 
 Identify and Fix Vulnerabilities:
