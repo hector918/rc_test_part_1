@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "database": "cd server && npm run db:init",
+    "seed": "cd server && npm run db:seed",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
