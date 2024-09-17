@@ -14,7 +14,7 @@ root
 └── package.json (root)
 ```
 
-How to Run This Application (At the ROOT of the FOLDER)
+How to Run This Application (At the ROOT of the FOLDER)\
 To set up and run the application, follow these steps:
 
 1. Install dependencies for the client and server:
