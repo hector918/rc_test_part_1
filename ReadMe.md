@@ -44,8 +44,8 @@ To set up and run the application, follow these steps:
 
 Once running, both the client and server will be available:
 
-Visit http://localhost:3000 to see the React app.
-Visit http://localhost:3001/users to view all users.
+Visit http://localhost:3000 to see the React app.\
+Visit http://localhost:3001/users to view all users.\
 Visit http://localhost:3001/movies to view all movies.
 
 React Application
