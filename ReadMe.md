@@ -1,5 +1,6 @@
 Folder Structure
 
+```
 root
 │
 ├── client (React frontend)
@@ -11,6 +12,7 @@ root
 │ └── node_modules
 │
 └── package.json (root)
+```
 
 How to Run This Application (At the ROOT of the FOLDER)
 To set up and run the application, follow these steps:
