@@ -44,7 +44,7 @@ app.get("/movies", async (req, res) => {
   }
 });
 
-app.get("/search", async (req, res) => {
+app.get("/search", validateTitle, async (req, res) => {
   const { title } = req.query;
   try {
     const query = `SELECT * FROM movies WHERE title ILIKE $1;`;
@@ -60,15 +60,11 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-
 const PORT = 3001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-
-
 
 //middleware///////////////////////////////////////////////////////////
 function validateTitle(req, res, next) {
@@ -77,6 +73,8 @@ function validateTitle(req, res, next) {
     console.error("Invalid title.");
     return res.status(400).json({ error: 'Invalid title.' });
   }
+  if(detectSqlInjection(title).isSuspicious) return res.status(400).json({ error: 'Invalid title.' });
+
   const sanitizedTitle = title
   .replace(/[%_]/g, '\\$&')  // Escape % and _ characters
   .replace(/\?/g, '_')       // Replace ? with _
