@@ -9,6 +9,7 @@
     "client": "cd client && npm start"
   },
   "dependencies": {
-    "concurrently": "^9.0.1"
+    "concurrently": "^9.0.1",
+    "server": "^1.0.41"
   }
 }

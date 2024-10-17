@@ -13,6 +13,7 @@ const SearchMovies = () => {
       );
       console.log(response);
       setResults(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -39,11 +40,13 @@ const SearchMovies = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            pattern="^[\p{L}\p{N}\s?*]+$"
+            title="Only letters, numbers, spaces, question marks, and asterisks are allowed"
           />
         </label>
         <button type="submit">Search</button>
       </form>
-      {results.length === 1 && results.length < 21 && (
+      {results.length > 0 && (
         <ul>
           {results.map((result, index) => {
             const date = new Date(result.release_date);
