@@ -85,26 +85,25 @@ function validateTitle(req, res, next) {
 }
 
 function detectSqlInjection(input) {
-  // 定义可能表示SQL注入的模式
+  
   const sqlPatterns = [
     /\b(SELECT|INSERT|UPDATE|DELETE|DROP|TRUNCATE|ALTER|CREATE|TABLE|FROM|WHERE|AND|OR|UNION|JOIN|INNER JOIN|OUTER JOIN|LEFT JOIN|RIGHT JOIN)\b/i,
-    /--/,          // SQL 注释
-    /;/,           // 多语句查询
-    /\/\*/,        // 多行注释开始
-    /\*\//,        // 多行注释结束
-    /'.*'/,        // 单引号字符串
-    /".*"/,        // 双引号字符串
-    /\b(EXEC|EXECUTE)\b/i,  // 执行存储过程
-    /\b(CHAR|NCHAR|VARCHAR|NVARCHAR)\b/i,  // 字符串数据类型
-    /\b(WAITFOR DELAY|WAITFOR TIME)\b/i,  // 时间延迟攻击
-    /\b(BENCHMARK|SLEEP)\b/i,  // 基准测试或睡眠函数
-    /\b(LOAD_FILE|INTO OUTFILE|INTO DUMPFILE)\b/i,  // 文件操作
-    /\b(INFORMATION_SCHEMA|SCHEMA_NAME|TABLE_NAME|COLUMN_NAME)\b/i,  // 元数据查询
-    /\b(CASE WHEN.*THEN.*ELSE)\b/i,  // CASE语句
-    /\b(CONVERT|CAST)\b/i,  // 数据类型转换
+    /--/,          
+    /;/,           
+    /\/\*/,       
+    /\*\//,        
+    /'.*'/,        
+    /".*"/,       
+    /\b(EXEC|EXECUTE)\b/i,  
+    /\b(CHAR|NCHAR|VARCHAR|NVARCHAR)\b/i,  
+    /\b(WAITFOR DELAY|WAITFOR TIME)\b/i, 
+    /\b(BENCHMARK|SLEEP)\b/i,  
+    /\b(LOAD_FILE|INTO OUTFILE|INTO DUMPFILE)\b/i,  
+    /\b(INFORMATION_SCHEMA|SCHEMA_NAME|TABLE_NAME|COLUMN_NAME)\b/i,  
+    /\b(CASE WHEN.*THEN.*ELSE)\b/i,  
+    /\b(CONVERT|CAST)\b/i,  
   ];
 
-  // 检查输入是否匹配任何SQL注入模式
   const detectedPatterns = sqlPatterns.filter(pattern => pattern.test(input));
 
   if (detectedPatterns.length > 0) {
